@@ -15,12 +15,16 @@ public class OregonTrail {
 
     // Method to start the game
     private static void startGame(Scanner scanner) {
+        helpers.clear();
         System.out.println("Welcome to Oregon Trail!");
+        System.out.println("\n----- Main Menu -----");
+        initialChoice(scanner);
 
-            System.out.println("\n----- Main Menu -----");
-            initialChoice(scanner);
-        }
+        // Get player data
+        System.out.println(helpers.playerSetup(scanner));
+    }
 
+    // Get choice and proper input to either start game or quit
     private static void initialChoice(Scanner scanner) {
         System.out.println("1. Start Journey");
             System.out.println("2. Quit");
@@ -30,43 +34,25 @@ public class OregonTrail {
             
             switch (choice) {
                 case 1:
-                    clear();
+                    helpers.clear();
                     System.out.println("Starting the journey...");
+                    System.out.println();
                     break;
                 case 2:
-                    clear();
+                    helpers.clear();
                     System.out.println("Thank you for playing!");
                     break;
                 default:
-                    clear();
+                    helpers.clear();
                     System.out.println("Invalid option. Please try again.");
                     initialChoice(scanner);
             }
             } catch (Exception e) {
-                clear();
+                helpers.clear();
                 System.err.println(e);
                 System.err.println("Improper Input - try again");
                 scanner.nextLine();
                 initialChoice(scanner);
-            }
-            
-        }
-
-        private static void clear() {
-            try {
-                if (System.getProperty("os.name").contains("Windows")) {
-                    // Windows
-                    new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
-                } else {
-                    // Unix/Linux/Mac
-                    System.out.print("\033[H\033[2J");
-                    System.out.flush();
-                }
-            } catch (Exception e) {
-                System.out.println("Error clearing the console: " + e.getMessage());
-            }
-        }
+            }       
     }
-
-    
-
+}
