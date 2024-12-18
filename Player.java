@@ -7,6 +7,8 @@ public class Player {
     private int food = 0;
     private int money = 0;
     private int clothes = 1;
+    private int dateDay = 1;
+    private String dateMonth = "";
 
     // Constructor
     public Player(String name, String job) {

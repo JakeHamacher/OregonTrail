@@ -146,7 +146,5 @@ public class helpers {
         }
 
         player.setName(partyMembers.get(0)); // Set the name of the player to the first party member
-
-        scanner.close();
     }
 }
